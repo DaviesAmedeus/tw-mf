@@ -1,6 +1,8 @@
 const plugin = require("tailwindcss/plugin");
 
+
 const animationDelay = plugin(function({matchUtilities, theme}){
+    // matchUtilities allow us to create dynamic classes
     matchUtilities({
         "animation-delay": (value)=>{
             return {
