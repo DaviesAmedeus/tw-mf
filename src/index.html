@@ -8,6 +8,9 @@
     <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
     <script>
       window.onload = () => {
+               
+        
+        //Responsible for closing and opening the hambarger menu button
         const mobileMenuIcon = document.getElementById("mobile-menu-button");
         mobileMenuIcon.addEventListener("click", () => {
           if (mobileMenuIcon.classList.contains("open")) {
@@ -17,6 +20,7 @@
           }
         });
 
+        //Responsible for closing and opening tickets sub-menu in navigation(Mobile part)
         const ticketsMenuItem = document.getElementById("ticket-menu-item");
         ticketsMenuItem.addEventListener("click", () => {
           if (ticketsMenuItem.classList.contains("open")) {
@@ -25,17 +29,35 @@
             ticketsMenuItem.classList.add("open");
           }
         });
+
+
+        //Responsible for dark and light mode
+        const darkModeToggle = document.getElementById("dark-mode-toggle");
+        darkModeToggle.addEventListener("click", () => {
+          if (document.body.classList.contains("dark")) {
+            document.body.classList.remove("dark");
+          } else {
+            document.body.classList.add("dark");
+          }
+        });
       };
     </script>
   </head>
-  <body>
-    <main>
+  <body class="dark">
+    <main class="bg-zinc-200 dark:bg-zinc-900">
       <!-- THE HEADER: Contains the NAVIGATION BAR SECTION & HERO SECTION -->
       <header class="text-zinc-200">
+        <!-- Dark & Light mode button -->
+         <div id="dark-mode-toggle" 
+         class="fixed top-24 right-0 inline-block w-12 cursor-pointer rounded-l-lg bg-zinc-900 dark:bg-zinc-200 dark:text-zinc-900 text-zinc-200 p-2 text-3xl ">
+          <i class="fa-solid fa-sun dark:hidden"></i>
+          <i class="fa-solid fa-moon hidden dark:inline"></i>
 
+         </div>
         <!-- NAVIGATION  SECTION -->
         <nav
-          class="sticky top-0 flex bg-gradient-to-r from-rose-500 to-pink-500">
+          class="sticky z-10 top-0 flex bg-gradient-to-r from-rose-500 to-pink-500"
+        >
           <!-- Logo -->
           <div class="flex items-center gap-2 p-2">
             <img src="./assets/images/logo-inverted.png" width="50" alt="" />
@@ -134,19 +156,34 @@
 
         <!-- HERO SECTION -->
         <div
-        style="background-image: url('./assets/images/hero.jpg');"
-          class="bg-cover bg-center bg-fixed flex h-[calc(100vh-200px)] min-h-[400px] flex-col items-center justify-center">
-          <div class="bg-white/30 rounded-xl py-2 px-4 text-center backdrop-blur-md">
+          style="background-image: url('./assets/images/hero.jpg')"
+          class="flex h-[calc(100vh-200px)] min-h-[400px] flex-col items-center justify-center bg-cover bg-fixed bg-center"
+        >
+          <div
+            class="rounded-xl bg-white/30 py-2 px-4 text-center backdrop-blur-md"
+          >
             <div class="relative">
-              <img src="./assets/images/logo.png" width="175" alt="">
-              <div class="flex items-center justify-center mt-[-70px] mb-5">
+              <img src="./assets/images/logo.png" width="175" alt="" />
+              <div class="mt-[-70px] mb-5 flex items-center justify-center">
                 <!-- Wavey animation bars -->
-                <div class="h-14 w-14 rounded-full bg-pink-500 items-center justify-center flex gap-1">
-                  <div class="w-1 h-2 bg-pink-300 rounded-full animate-wavey "></div>
-                  <div class="w-1 h-3 bg-pink-200 rounded-full animate-wavey animation-delay-200"></div>
-                  <div class="w-1 h-4 bg-pink-100 rounded-full animate-wavey animation-delay-[150ms]"></div>
-                  <div class="w-1 h-3 bg-pink-200 rounded-full animate-wavey animation-delay-300"></div>
-                  <div class="w-1 h-2 bg-pink-300 rounded-full animate-wavey animation-delay-[75ms]"></div>
+                <div
+                  class="flex h-14 w-14 items-center justify-center gap-1 rounded-full bg-pink-500"
+                >
+                  <div
+                    class="h-2 w-1 animate-wavey rounded-full bg-pink-300"
+                  ></div>
+                  <div
+                    class="h-3 w-1 animate-wavey rounded-full bg-pink-200 animation-delay-200"
+                  ></div>
+                  <div
+                    class="h-4 w-1 animate-wavey rounded-full bg-pink-100 animation-delay-[150ms]"
+                  ></div>
+                  <div
+                    class="h-3 w-1 animate-wavey rounded-full bg-pink-200 animation-delay-300"
+                  ></div>
+                  <div
+                    class="h-2 w-1 animate-wavey rounded-full bg-pink-300 animation-delay-[75ms]"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -155,108 +192,119 @@
             </div>
           </div>
 
-          <div class="font-bold mt-3 tx-sm">
+          <div class="tx-sm mt-3 font-bold">
             Keep me updated with news and promotions
           </div>
           <div class="mt-3 flex gap-2">
-            <input type="email" placeholder="Email..." class="rounded-sm p-2 border-white/40 font-bold bg-white/30 backdrop-blur-md outline-pink-500 placeholder-zinc-500 text-sky-900 caret-pink-500">
-            <div class="cursor-pointer rounded-sm bg-pink-500 py-2 px-4 font-bold transition-colors hover:bg-sky-900 hover:shadow-lg ">
+            <input
+              type="email"
+              placeholder="Email..."
+              class="rounded-sm border-white/40 bg-white/30 p-2 font-bold text-sky-900 placeholder-zinc-500 caret-pink-500 outline-pink-500 backdrop-blur-md"
+            />
+            <div
+              class="cursor-pointer rounded-sm bg-pink-500 py-2 px-4 font-bold transition-colors hover:bg-sky-900 hover:shadow-lg"
+            >
               Subscribe
             </div>
           </div>
-         
         </div>
       </header>
 
       <!-- HEADLINERs SECTION -->
-      <div class="max-w-screen-lg mx-auto mt-20">
+      <div class="mx-auto mt-20 max-w-screen-lg text-zinc-900 dark:text-zinc-200">
         <h2>Geadliners</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit natoque, 
-          arcu sagittis sociis etiam non per consequat habitant, 
-          torquent mi purus ridiculus vitae ante faucibus.
+          Lorem ipsum dolor sit amet consectetur adipiscing elit natoque, arcu
+          sagittis sociis etiam non per consequat habitant, torquent mi purus
+          ridiculus vitae ante faucibus.
         </p>
 
         <!-- The slide part-->
-        <div class="mt-4 flex w-full gap-4 pb-5 snap-x overflow-x-auto">
+        <div class="mt-4 flex w-full snap-x gap-4 overflow-x-auto pb-5">
           <!-- Item 1 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band1.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band1.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
 
           <!-- Item 2 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band2.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band2.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
 
           <!-- Item 3 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band3.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band3.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
 
           <!-- Item 4 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band4.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band4.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
 
           <!-- Item 5 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band5.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band5.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
 
           <!-- Item 6 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band6.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band6.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
 
           <!-- Item 7 -->
           <div class="min-width-[80%] md:min-w-[40%]">
-            <div style="background-image: url('./assets/images/band7.jpg');" 
-            class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20">
+            <div
+              style="background-image: url('./assets/images/band7.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <div>
+              <h5 class="mt-2">Curdory Gary</h5>
+              <h6>1st july 9pm- Main Stage</h6>
             </div>
-              <div>
-                <h5 class="mt-2">Curdory Gary</h5>
-                <h6>1st july 9pm- Main Stage</h6>
-              </div>
           </div>
         </div>
-        
       </div>
     </main>
   </body>
